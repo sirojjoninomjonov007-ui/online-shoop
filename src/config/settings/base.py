@@ -32,12 +32,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    
 
     # third-party apps
     'corsheaders',
     'rest_framework',
     'django_filters',
     'drf_spectacular',
+    'drf_spectacular_sidecar',
+
 
     # own apps
     'apps.utils',
@@ -113,8 +117,20 @@ REST_FRAMEWORK = {
     },
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     # 'UNAUTHENTICATED_USER': 'users.models.AnonymousUser',
+
+
 }
 
+# Configure metadata and sidecar UI layout
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Omnline-shop Project API',
+    'DESCRIPTION': 'Comprehensive API documentation for my Django application',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'SWAGGER_UI_DIST': 'SIDECAR',  # Requires drf-spectacular-sidecar
+    'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
+    'REDOC_DIST': 'SIDECAR',
+}
 
 
 LANGUAGE_CODE = 'en-us'
